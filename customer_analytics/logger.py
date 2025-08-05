@@ -9,9 +9,9 @@ def get_logger():
         _logger = logging.getLogger("customer_analytics")
         _logger.setLevel(logging.INFO)
         os.makedirs("reports", exist_ok=True)
-        handler = logging.StreamHandler("reports/pipeline.log")
+        file_handler = logging.FileHandler("reports/pipeline.log")
         formatter = logging.Formatter('%(asctime)s %(levelname)s:%(message)s')
-        handler.setFormatter(formatter)
-        _logger.addHandler(handler)
+        file_handler.setFormatter(formatter)
+        _logger.addHandler(file_handler)
         _logger.propagate = False
     return _logger
